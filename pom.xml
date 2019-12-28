@@ -22,7 +22,10 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
-<spring-cloud.version>Greenwich.SR1</spring-cloud.version>		
+        <spring-cloud.version>Greenwich.SR1</spring-cloud.version>	
+        <hive.version>1.2.1000.2.6.5.0-292</hive.version>
+        <hadoop.version>2.7.3.2.6.5.0-292</hadoop.version>
+        <slf4j.version>1.7.25</slf4j.version>	
 	</properties>
 
 	<dependencies>
@@ -61,7 +64,11 @@
             <artifactId>spring-security-test</artifactId>
             <scope>test</scope>
         </dependency>
-
+        <dependency>
+            <groupId>hive</groupId>
+            <artifactId>jdbc-uber</artifactId>
+            <version>2.6.3.0-235</version>
+        </dependency>
     <dependency>
       <groupId>com.h2database</groupId>
       <artifactId>h2</artifactId>

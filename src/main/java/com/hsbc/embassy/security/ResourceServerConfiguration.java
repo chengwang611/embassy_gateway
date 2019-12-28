@@ -16,9 +16,10 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
     public void configure(HttpSecurity http) throws Exception{
         http
         .authorizeRequests()
-          .antMatchers(HttpMethod.GET, "/hive/**")
-          .hasRole("ADMIN");
- //         .anyRequest()
-  //        .authenticated();
+          .antMatchers("swagger-ui.html#/**").permitAll()
+          .antMatchers("/hive/list/**").hasAnyRole("ADMIN")
+          .antMatchers("/hive/show/**").hasAnyRole("ADMIN,USER");
+         // .antMatchers("/hive/**").authenticated()
+         // .anyRequest().authenticated();
     }
 }

@@ -28,7 +28,7 @@ public class SampleHiveController {
     private QueryDAO dao;
 	
 
-	@RequestMapping(value = "/showTables/{schemaName}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/show/Tables/{schemaName}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Map<String, Object>>> showTables(@PathVariable String schemaName) {
 		List<Map<String, Object>> rows = null;
 		jdbcTemplate.execute("use " + schemaName);
@@ -53,7 +53,7 @@ public class SampleHiveController {
 //	}
 	
 	
-	@RequestMapping(value = "/showColumns/{schemaName}/{tableName}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/show/Columns/{schemaName}/{tableName}", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Map<String, Object>>> showTableColumns(@PathVariable String schemaName,@PathVariable String tableName) {
 		List<Map<String, Object>> rows = null;
 		jdbcTemplate.execute("use " + schemaName);
@@ -72,7 +72,7 @@ public class SampleHiveController {
 		return new ResponseEntity<List<Map<String, Object>>>(rows, HttpStatus.OK);
 	}
 
-	@RequestMapping(value = "/databases", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/show/databases", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<List<Map<String, Object>>> showDatabaeses() {
 		List<Map<String, Object>> rows = null;
 		rows = jdbcTemplate.queryForList("show databases");
